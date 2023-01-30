@@ -2,17 +2,19 @@ import * as React from 'react';
 import { useDispatch,useSelector } from "react-redux";
 import{ordered,restocked} from '../cakeSlice';
 import { Button, Grid } from "@mui/material";
+import Icart from "../../../Components/Icart";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import cake1 from '../../../Asset/cakes/cake1.jpg';
 import cake from "../../../Asset/cakes/cake2.jpg";
 import cake3 from "../../../Asset/cakes/cake3.jpg";
 import cake4 from "../../../Asset/cakes/cake4.jpg";
+import Icard from '../../../Components/Icard';
 import cake5 from "../../../Asset/cakes/cake5.jpg";
 import cake6 from "../../../Asset/cakes/cake6.jpg";
 import cake7 from "../../../Asset/cakes/cake7.jpg";
-import cake9 from "../../../Asset/cakes/cake9.jpg";
-import cake10 from "../../../Asset/cakes/cake10.jpg";
+import cake9 from"../../../Asset/cakes/cake9.jpg";
+import cake10 from"../../../Asset/cakes/cake10.jpg";
 import cake11 from "../../../Asset/cakes/cake11.jpg";
 import cake12 from "../../../Asset/cakes/cake12.jpg";
 import cake13 from "../../../Asset/cakes/cake13.jpg";
@@ -23,19 +25,10 @@ import cake17 from "../../../Asset/cakes/cake17.jpg";
 import cake18 from "../../../Asset/cakes/cake18.jpg";
 import cake19 from "../../../Asset/cakes/cake19.jpg";
 import cake20 from "../../../Asset/cakes/cake20.jpg";
-import Icart from '../../../Component/Icart';
-
-
-
-
-
-import Irating from '../../../Component/Irating';
-import Icard from '../../../Component/Icard';
-
-
- export default function CakeView(){
-   const dispatch=useDispatch();
-   const numOfCakes=useSelector((state)=>state.cake.numOfCakes);
+import Irating from '../../../Components/Irating';
+export default function cakeview(){
+    const dispatch=useDispatch();
+    const numOfCakes=useSelector((state)=>state.cake.numOfCakes);
     console.log('cakes',numOfCakes);
     const orderedCakes=useSelector((state)=>state.cake.orderedCakes)
 
@@ -47,39 +40,31 @@ import Icard from '../../../Component/Icard';
       },
       {
         title:"cake2",
-        photo:cake,
-        price:'120'
+        photo:cake
       },
       {
         title:"cake3",
-        photo:cake3,
-        price:'13'
+        photo:cake3
       },
       {
         title:"cake4",
-        photo:cake4,
-        price:'3'
+        photo:cake4
       },
       {
         title:"cake5",
-        photo:cake5,
-        price:'67'
+        photo:cake5
       },
       {
         title:"cake6",
-        photo:cake6,
-        price:'43'
+        photo:cake6
       },
       {
         title:"cake7",
-        photo:cake7,
-        price:445
+        photo:cake7
       },
-      
       {
         title:"cake9",
-        photo:cake9,
-        price:32
+        photo:cake9
       },
       {
         title:"cake10",
@@ -89,56 +74,59 @@ import Icard from '../../../Component/Icard';
         title:"cake11",
         photo:cake11
       },
-      {
-        title:"cake12",
-        photo:cake12
-      },
-      {
-        title:"cake13",
-        photo:cake13
-      },
-      {
-        title:"cake14",
-        photo:cake14
-      },
-      {
-        title:"cake15",
-        photo:cake15
-      },
-      {
-        title:"cake16",
-        photo:cake16
-      },
-      {
-        title:"cake17",
-        photo:cake17
-      },
-      {
-        title:"cake18",
-        photo:cake18
-      },
-      {
-        title:"cake19",
-        photo:cake19
-      },
-      {
-        title:"cake20",
-        photo:cake20
-      }
-      
-      
+{
+  title:"cake12",
+  photo:cake12
+},
+{
+  title:"cake13",
+  photo:cake13
+
+},
+{
+  title:"cake14",
+  photo:cake14
+},{
+  title:"cake15",
+  photo:cake15
+},
+{
+  title:"cake16",
+  photo:cake16,
+  price:324
+
+},
+{
+  title:"cake17",
+  photo:cake17,
+  price:43
+},
+{
+  title:"cake18",
+  photo:cake18,
+  price:320
+  
+},
+{
+  title:"cake19",
+photo:cake19
+},{
+  title:"cake20",
+  photo:cake20,
+  price:400
+}
 
 ]
 
 
 
 
-const Alert = React.forwardRef(function Alert(props, ref) {
-    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    const Alert = React.forwardRef(function Alert(props, ref) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
       });
       
 
- const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
     dispatch(ordered(5));

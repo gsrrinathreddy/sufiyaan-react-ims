@@ -1,27 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
-import Sna from './Component/Sna';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import axios from 'axios';
+import Imnavbar from './Components/Imnavbar';
 import Cake from './Pages/Cake';
-import Chocolate from './Pages/Chocolate';
+import Flowers from './Pages/Flowers';
 import Icecream from './Pages/Icecream';
-import Viewcart from './Component/Viewcart';
+import Birthday from './Pages/Cake';
+import Viewcart from './Pages/Viewcart';
+import Flowercard from './Components/Flowercard';
+function App() {
 
-
-function App(props) {
-  let p1=['Cake','Icecream','Chocolate']
+  
+  let p1=['Cake','Flowers','Birthday','Icecream']
   return (
+    
+    
     <div className="App">
-      <BrowserRouter>
-      <Sna pages={p1}></Sna>
-      <Routes>
-    <Route path='Cake'element={<Cake/>}/>
-    <Route path='Chocolate'element={<Chocolate/>}/>
-    <Route path='Icecream'element={<Icecream/>}/>
-    <Route path='/ViewCart' element={<Viewcart/>}/>
+     <BrowserRouter>
+     <Imnavbar pages={p1}></Imnavbar>
+  <Routes>
+  <Route path='Cake'element={<Cake/>}/>
+  <Route path='Flowers'element={<Flowers/>}/>
+  <Route path='Birthday'element={<Birthday/>}/>
+  <Route path='Icecream'element={<Icecream/>}/>
+  <Route path='/cart' element={<Viewcart/>}/>
+  </Routes>
 
-      </Routes>
-      </BrowserRouter>
+     </BrowserRouter>
     </div>
   );
 }

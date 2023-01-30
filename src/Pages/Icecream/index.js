@@ -1,7 +1,13 @@
+import IcecreamView from "../../Features/icecream/IcecreamView";
+
 export default function Icecream(){
+    
     return(
         <>
-        venilla
+        hello
+        <IcecreamView/>
+ 
         </>
+        
     )
 }
