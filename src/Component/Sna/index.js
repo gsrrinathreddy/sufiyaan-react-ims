@@ -50,6 +50,9 @@ function Sna(props) {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Link to='/' style={{textDecoration:'none'}}>
+
+          </Link>
           <Typography
             variant="h6"
             noWrap
@@ -66,7 +69,7 @@ function Sna(props) {
             }}
           >
             SuFiYaAn Bakery
-            🤣🎂😜🎉
+            🎂🎉🎁
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -99,9 +102,11 @@ function Sna(props) {
               }}
             >
               {pages.map((page) => (
+                <Link to={page} style={{textDecoration:"none"}}>
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>

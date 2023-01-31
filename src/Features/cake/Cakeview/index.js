@@ -26,9 +26,11 @@ import cake18 from "../../../Asset/cakes/cake18.jpg";
 import cake19 from "../../../Asset/cakes/cake19.jpg";
 import cake20 from "../../../Asset/cakes/cake20.jpg";
 import Irating from '../../../Components/Irating';
-import Flowercard from '../../../Components/Flowercard';
+import Flowercard from '../../../Component/Flowercard';
 
-export default function Cakeview(){
+
+export default function Cakeview(props){
+  let price=props.price
     const dispatch=useDispatch();
     const numOfCakes=useSelector((state)=>state.cake.numOfCakes);
     console.log('cakes',numOfCakes);
@@ -159,18 +161,21 @@ photo:cake19
 
     return(
         <>
-        <br/>
+        
 
       <Grid container spacing={{xs:2,md:3}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"black"}}>
         {
           cakeList.map((item,index)=>{
             return(
-              <Grid item xs={2}  sm={6} md={4} key={index}>
+              <Grid item xs={6}  sm={6} md={4} key={index}>
 
-              <Flowercard  title={item.title}
+                <Flowercard  title={item.title}
                       photo={item.photo}
                       price={item.price}
-              ></Flowercard>
+                      order={ordered}
+               >
+
+              </Flowercard>
               </Grid>
             )
           })

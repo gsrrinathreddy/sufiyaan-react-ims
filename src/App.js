@@ -27,6 +27,7 @@ function App() {
   <Route path='Icecream'element={<Icecream/>}/>
   <Route path='Chocolates'element={<Chocolate/>}/>
   <Route path='/cart' element={<Viewcart/>}/>
+  <Route path='/' element={<Chocolate/>}/>
   </Routes>
 
      </BrowserRouter>

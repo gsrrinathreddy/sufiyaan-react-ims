@@ -38,7 +38,8 @@ export default function Flowercard(props) {
     let ordername=props.ordername
     let title=props.title;
     let photo=props.photo;
-    let price=props.price
+    let price=props.price;
+    let orderPlaced=props.order
     const dispatch=useDispatch()
     const [count, setCount] = useState(0);
     const [expanded, setExpanded] = React.useState(false);
@@ -56,9 +57,15 @@ export default function Flowercard(props) {
   const handleClose = () => {
       setAnchorEl(null);
   };
+  let params={
+    title:title,
+    price:price,
+
+    qty:parseInt(qty)
+  }
 
   return (
-    <Card sx={{ maxWidth: 245 ,marginLeft:"1px"}} style={{backgroundColor:"silver"}}>
+    <Card sx={{ maxWidth: 400 ,marginLeft:"1px"}} style={{backgroundColor:"silver"}}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[300] }} aria-label="recipe"> 
@@ -88,17 +95,12 @@ export default function Flowercard(props) {
             <TextField sx={{width:'70px'}} size="small" id="outlined-basic"  variant="outlined" defaultValue={0} onChange={(e)=>setQty(e.currentTarget.value)}/> 
         <Box><Button aria-label="cart " sx={{color:'black'}} 
         onClick={()=>{
-            if(ordername=="flower"){
-                dispatch(flowerorder(qty))
-            }
-            else if(ordername == "cake"){
-              dispatch(cakeorder(qty))
-            }
-
+                dispatch(orderPlaced(params))
+        
         }}>add</Button> 
     </Box>
         </Typography>
-      <strike>actual price:  {price}</strike> 
+       price:  {price}
       </CardContent>
 
       <CardActions disableSpacing>

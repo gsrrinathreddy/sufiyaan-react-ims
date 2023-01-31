@@ -5,7 +5,7 @@ import Icart from "../../../Components/Icart";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import React from "react";
-import Flowercard from "../../../Components/Flowercard";
+import Flowercard from "../../../Component/Flowercard";
 import Grid from "@mui/material/Grid";
 import flower1 from '../../../Asset/Flowers/flower1.jpg';
 import flower2 from '../../../Asset/Flowers/flower2.jpg';
@@ -107,7 +107,7 @@ export default function FlowerView(){
 
         <Flowercard title={item.title}
                 photo={item.photo}
-                ordername={ordername}
+                order={ordered}
                 
         ></Flowercard>
         </Grid>

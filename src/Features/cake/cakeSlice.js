@@ -8,11 +8,11 @@ const cakeSlice=createSlice({
     initialState,
     reducers:{
         ordered:(state,action)=>{
-            state.numOfCakes-=action.payload;
-            state.orderedCakes+=parseInt(action.payload)
+            state.numOfCakes-=action.payload.qty;
+            state.orderedCakes+=parseInt(action.payload.qty)
         },
         restocked:(state,action)=>{
-            state.numOfCakes+=action.payload
+            state.numOfCakes+=action.payload.qty
         }
     }
 })

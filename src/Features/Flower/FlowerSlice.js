@@ -9,7 +9,7 @@ const flowerSlice=createSlice({
     reducers:{
         ordered:(state,action)=>{
             state.numOfFlowers-=action.payload;
-            state.orderedFlowers+=parseInt(action.payload)
+            state.orderedFlowers+=parseInt(action.payload.qty)
         },
         restocked:(state,action)=>{
             state.numOfFlowers+=action.payload

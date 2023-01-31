@@ -19,7 +19,7 @@ import chocolate11 from "../../../Asset/Chocolates/chocolate11.jpg";
 import chocolate12 from "../../../Asset/Chocolates/chocolate12.jpg";
 import Icart from '../../../Component/Icart';
 import Irating from '../../../Component/Irating';
-import Icard from '../../../Component/Icard';
+import Flowercard from '../../../Component/Flowercard';
 
 
  export default function Chocolateview(props){
@@ -38,39 +38,48 @@ import Icard from '../../../Component/Icard';
       },
       {
         title:"chocolate2",
-        photo:chocolate2
+        photo:chocolate2,
+        price:110
       },
       {
         title:"chocolate3",
-        photo:chocolate3
+        photo:chocolate3,
+        price:234
       },
       {
         title:"chocolate4",
-        photo:chocolate4
+        photo:chocolate4,
+        price:125
       },
       {
         title:"chocolate5",
-        photo:chocolate5
+        photo:chocolate5,
+        price:134
       },
       {
         title:"chocolate6",
-        photo:chocolate6
+        photo:chocolate6,
+        price:245
       },
       {
         title:"chocolate7",
-        photo:chocolate7
+        photo:chocolate7,
+        price:567
       },
       {
         title:"chocolate10",
-        photo:chocolate10
+        photo:chocolate10,
+        price:789
       },
       {
         title:"chocolate11",
-        photo:chocolate11
+        photo:chocolate11,
+        price:432
       },
       {
         title:"chocolate12",
-        photo:chocolate12
+        photo:chocolate12,
+        price:124
       }
       
       
@@ -111,10 +120,11 @@ const Alert = React.forwardRef(function Alert(props, ref) {
             return(
               <Grid item xs={2}  sm={6} md={4} key={index}>
 
-              <Icard  title={item.title}
+              <Flowercard  title={item.title}
                       photo={item.photo}
                       price={item.price}
-              ></Icard>
+                      order={ordered}
+              ></Flowercard>
               </Grid>
             )
           })
