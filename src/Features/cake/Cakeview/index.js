@@ -26,7 +26,9 @@ import cake18 from "../../../Asset/cakes/cake18.jpg";
 import cake19 from "../../../Asset/cakes/cake19.jpg";
 import cake20 from "../../../Asset/cakes/cake20.jpg";
 import Irating from '../../../Components/Irating';
-export default function cakeview(){
+import Flowercard from '../../../Components/Flowercard';
+
+export default function Cakeview(){
     const dispatch=useDispatch();
     const numOfCakes=useSelector((state)=>state.cake.numOfCakes);
     console.log('cakes',numOfCakes);
@@ -40,55 +42,69 @@ export default function cakeview(){
       },
       {
         title:"cake2",
-        photo:cake
+        photo:cake,
+        price:420
+        
       },
       {
         title:"cake3",
-        photo:cake3
+        photo:cake3,
+        price:123
       },
       {
         title:"cake4",
-        photo:cake4
+        photo:cake4,
+        price:890
       },
       {
         title:"cake5",
-        photo:cake5
+        photo:cake5,
+        price:341
       },
       {
         title:"cake6",
-        photo:cake6
+        photo:cake6,
+        price:432
       },
       {
         title:"cake7",
-        photo:cake7
+        photo:cake7,
+        price:675
       },
       {
         title:"cake9",
-        photo:cake9
+        photo:cake9,
+        price:231
       },
       {
         title:"cake10",
-        photo:cake10
+        photo:cake10,
+        price:654
       },
       {
         title:"cake11",
-        photo:cake11
+        photo:cake11,
+        price:932
       },
 {
   title:"cake12",
-  photo:cake12
+  photo:cake12,
+  price:345
 },
 {
   title:"cake13",
-  photo:cake13
+  photo:cake13,
+  price:124
 
 },
 {
   title:"cake14",
-  photo:cake14
+  photo:cake14,
+  price:367
 },{
   title:"cake15",
-  photo:cake15
+  photo:cake15,
+  price:198
 },
 {
   title:"cake16",
@@ -151,10 +167,10 @@ photo:cake19
             return(
               <Grid item xs={2}  sm={6} md={4} key={index}>
 
-              <Icard  title={item.title}
+              <Flowercard  title={item.title}
                       photo={item.photo}
                       price={item.price}
-              ></Icard>
+              ></Flowercard>
               </Grid>
             )
           })

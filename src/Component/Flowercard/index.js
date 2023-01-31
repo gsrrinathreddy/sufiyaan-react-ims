@@ -17,13 +17,12 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Irating from '../Irating';
 import { useState,useEffect } from 'react';
 import Itextfield from '../Itextfield';
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import { ordered as flowerorder } from '../../Features/Flower/FlowerSlice';
-import {ordered as cakeorder}from '../../Features/cake/cakeSlice'
-import {ordered as iceCreamorder}from '../../Features/cake/cakeSlice';
-import {ordered as chocolate} from '../../Features/chocolate/chocolateSlice';
+import { ordered as iceCreamorder } from '../../Features/icecream/icecreamSlice';
+import { ordered as cakeorder } from '../../Features/cake/cakeSlice';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -39,6 +38,7 @@ export default function Flowercard(props) {
     let ordername=props.ordername
     let title=props.title;
     let photo=props.photo;
+    let price=props.price
     const dispatch=useDispatch()
     const [count, setCount] = useState(0);
     const [expanded, setExpanded] = React.useState(false);
@@ -58,10 +58,10 @@ export default function Flowercard(props) {
   };
 
   return (
-    <Card sx={{ maxWidth: 145 ,marginLeft:"1px"}} style={{backgroundColor:"silver"}}>
+    <Card sx={{ maxWidth: 245 ,marginLeft:"1px"}} style={{backgroundColor:"silver"}}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe"> 
+          <Avatar sx={{ bgcolor: red[300] }} aria-label="recipe"> 
             R
           </Avatar>
         }
@@ -85,20 +85,20 @@ export default function Flowercard(props) {
          <Irating/>
         </Typography>
         <Typography>
-            <TextField sx={{width:'40px'}} size="small" id="outlined-basic"  variant="outlined" defaultValue={0} onChange={(e)=>setQty(e.currentTarget.value)}/> 
-        <Box><IconButton aria-label="cart " sx={{color:'black'}} 
+            <TextField sx={{width:'70px'}} size="small" id="outlined-basic"  variant="outlined" defaultValue={0} onChange={(e)=>setQty(e.currentTarget.value)}/> 
+        <Box><Button aria-label="cart " sx={{color:'black'}} 
         onClick={()=>{
             if(ordername=="flower"){
                 dispatch(flowerorder(qty))
             }
-             else if(ordername == "cake"){
-               dispatch(cakeorder(qty))
-             }
-            
-        }}>add</IconButton> 
+            else if(ordername == "cake"){
+              dispatch(cakeorder(qty))
+            }
+
+        }}>add</Button> 
     </Box>
         </Typography>
-        
+      <strike>actual price:  {price}</strike> 
       </CardContent>
 
       <CardActions disableSpacing>
@@ -128,17 +128,16 @@ export default function Flowercard(props) {
             Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
             aside for 10 minutes.
           </Typography>
-          <Typography paragraph>
-            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-            large plate and set aside, leaving chicken and chorizo in the pan. Add
-            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-            stirring often until thickened and fragrant, about 10 minutes. Add
-            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+          <Typography>
+            {price}
           </Typography>
           <Typography paragraph>
-            
+            Add rice and stir very gently to distribute. Top with artichokes and
+            peppers, and cook without stirring, until most of the liquid is absorbed,
+            15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
+            mussels, tucking them down into the rice, and cook again without
+            stirring, until mussels have opened and rice is just tender, 5 to 7
+            minutes more. (Discard any mussels that don&apos;t open.)
           </Typography>
           <Typography>
             Set aside off of the heat to let rest for 10 minutes, and then serve.

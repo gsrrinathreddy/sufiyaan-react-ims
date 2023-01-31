@@ -1,4 +1,4 @@
-import CakeView from "../../Features/cake/cakeview";
+import CakeView from '../../Features/cake/Cakeview/index'
 
 
 
@@ -65,6 +65,7 @@ export default function Cakepage(){
   return(
     <>
     <h1>hlo</h1>
+    <CakeView></CakeView>
     
     </>
   )

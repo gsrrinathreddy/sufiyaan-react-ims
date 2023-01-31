@@ -16,13 +16,16 @@ import { Link } from 'react-router-dom';
 import Icart from '../Icart';
 import { useSelector } from 'react-redux';
 import Imsautocomplete from '../Imsautocomplete';
-const pages = ['Cake','Chocolate','Icecream'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+ const pages =['Cake','Flowers','Icecream','Birthday','Chocolates'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout','login'];
 
 function Sna(props) {
     const cakes = useSelector((state)=>state.cake.orderedCakes);
+    const flowers=useSelector((state)=>state.flower.orderedFlowers);
+    const icecream=useSelector((state)=>state.icecream.orderedIcecreams);
     const chocolates=useSelector((state)=>state.chocolate.orderedChocolates)
-    const sum = cakes + chocolates;
+    const sum = cakes + chocolates+icecream+flowers;
     let pages=props.pages
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -43,7 +46,7 @@ function Sna(props) {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor:"red"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -62,7 +65,8 @@ function Sna(props) {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            SuFiYaAn Bakery
+            🤣🎂😜🎉
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>

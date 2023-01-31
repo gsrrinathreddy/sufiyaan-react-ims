@@ -16,7 +16,10 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function Icart(props) {
   let badgeContent=props.badgeContent;
-  let numCakes=useSelector((state)=>state.cake.orderedCakes)
+  // let numCakes=useSelector((state)=>state.cake.orderedCakes)
+  // let numOfIcecreams=useSelector((state)=>state.icecream.orderedIcecreams)
+  // let numOfFlowers=useSelector((state)=>state.flower. orderedFlowers)
+  // let s=numCakes+numOfIcecreams+numOfFlowers
   return (
     <IconButton aria-label="cart">
       <StyledBadge badgeContent={badgeContent} color="secondary">

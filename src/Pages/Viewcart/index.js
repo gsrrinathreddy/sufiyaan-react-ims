@@ -1,20 +1,10 @@
-import { Box } from "@mui/material"
-import { useSelector } from "react-redux"
-export default function Viewcart(){
-     const orderedcakes=useSelector((state)=>state.cake.orderedCakes)
-    const orderedicecreams=useSelector((state)=>state.icecream.orderedIcecreams)
-    return(
-        <>
-        <Box sx={{width:'100%',backgroundColor:'peachpuff',textAlign:'left'}}>
-
-
-        Your Orders:
-        <br/>
-        no of cakes ordered:{orderedcakes}
-        no of icecreams ordered :{orderedicecreams}
-</Box>
-
-
-        </>
-    )
-}
+import { Typography,Grid,Button } from "@mui/material";import { Box } from "@mui/system";import { useSelector } from "react-redux";import { useNavigate } from "react-router-dom";export default function Cartpages(){const cartList = useSelector((state)=>state.cart.cartList);
+     console.log(cartList)
+     const navigate = useNavigate();
+      return(<> <Box>Order Details : <Grid container>
+         <Typography variant="h6" sx={{fontWeight:'bold'}}> Name </Typography>{  cartList.map((item)=>{ return(<Typography>{item.name} </Typography> ) }) } </Grid> <Grid md={2}> 
+         <Typography variant="h6" sx={{fontWeight:'bold'}}>Actual Price </Typography> {cartList.map((item)=>{ return( <Typography> {item.actualPrice} </Typography>
+       ) })}</Grid><Grid md={2}>
+        <Typography variant="h6" sx={{fontWeight : 'bold'}}>Discounted Price </Typography>
+        { cartList.map((item)=>{return(<Typography> {item.DiscountedPrice}</Typography> ) })}</Grid></Box>
+       <Button onClick={()=>navigate('order-summary')}>Place Order</Button></> )}
