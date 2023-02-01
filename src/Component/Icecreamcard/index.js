@@ -14,65 +14,45 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Irating from "../Irating";
-import { useState, useEffect } from "react";
-import Itextfield from "../Itextfield";
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
-import Box from "@mui/material/Box";
 
+import Box from "@mui/material/Box";
+import { ordered as icecreamorder } from "../../Features/icecream/icecreamSlice";
+
+import { useState, useEffect } from "react";
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
-})
-(({ theme, expand }) => ({
+})(({ theme, expand }) => ({
   transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
-})
-);
+}));
 
-export default function Flowercard(props) {
-  let ordername = props.ordername;
+export default function IcecreamCard(props) {
   let title = props.title;
   let photo = props.photo;
-  let price = props.price;
-  let orderPlaced = props.order;
+  let ordername = props.ordername;
   const dispatch = useDispatch();
-  const [count, setCount] = useState(0);
-  const [expanded, setExpanded] = React.useState(false);
+
+  let price = props.price;
   const [qty, setQty] = useState(0);
+
+  const [expanded, setExpanded] = React.useState(false);
+  const [count, setCount] = useState(0);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  let params = {
-    title: title,
-    price: price,
-    
-
-    qty: parseInt(qty),
-  };
-
   return (
-    <Card
-      sx={{ maxWidth: 700, marginLeft: "5px" }}
-      style={{ backgroundColor: "silver" }}
-    >
+    <Card sx={{ maxWidth: 345 }} style={{ backgroundColor: "#3CB371" }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[300] }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
             R
           </Avatar>
         }
@@ -81,38 +61,13 @@ export default function Flowercard(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title={title}
+        title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       />
-      <CardMedia component="img" height="194" image={photo} alt="Snacks" />
+      <CardMedia component="img" height="194" image={photo} alt="Paella dish" />
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          <Irating/>
-        </Typography>
-        <Typography>
-          <TextField
-            sx={{ width: "70px" }}
-            size="big"
-            id="outlined-basic"
-            variant="outlined"
-            defaultValue={0}
-            onChange={(e) => setQty(e.currentTarget.value)}
-          />
-          <Box>
-            <Button
-              aria-label="cart "
-              sx={{ color: "black" }}
-              onClick={() => {
-                dispatch(orderPlaced(params));
-              }}
-            >
-              add
-            </Button>
-          </Box>
-        </Typography>
-        price: {price}
+        <Typography>{price}</Typography>
       </CardContent>
-
       <CardActions disableSpacing>
         <p>Likes{count}</p>
         <IconButton
@@ -121,7 +76,29 @@ export default function Flowercard(props) {
         >
           <FavoriteIcon />
         </IconButton>
-
+        <Typography>
+          <TextField
+            sx={{ width: "70px" }}
+            size="small"
+            id="outlined-basic"
+            variant="outlined"
+            defaultValue={0}
+            onChange={(e) => setQty(e.currentTarget.value)}
+          />
+          <Box>
+            <IconButton
+              aria-label="cart "
+              sx={{ color: "black" }}
+              onClick={() => {
+                if (ordername == "icecream") {
+                  dispatch(icecreamorder(qty));
+                }
+              }}
+            >
+              add
+            </IconButton>
+          </Box>
+        </Typography>
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
@@ -136,7 +113,8 @@ export default function Flowercard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography>{price}</Typography>
+          <Typography paragraph>Method:</Typography>
+
         </CardContent>
       </Collapse>
     </Card>

@@ -2,14 +2,14 @@ import * as React from 'react';
 import { useDispatch,useSelector } from "react-redux";
 import{ordered,restocked} from '../cakeSlice';
 import { Button, Grid } from "@mui/material";
-import Icart from "../../../Components/Icart";
+import Icart from "../../../Component/Icart";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import cake1 from '../../../Asset/cakes/cake1.jpg';
 import cake from "../../../Asset/cakes/cake2.jpg";
 import cake3 from "../../../Asset/cakes/cake3.jpg";
 import cake4 from "../../../Asset/cakes/cake4.jpg";
-import Icard from '../../../Components/Icard';
+import Icard from '../../../Component/Icard';
 import cake5 from "../../../Asset/cakes/cake5.jpg";
 import cake6 from "../../../Asset/cakes/cake6.jpg";
 import cake7 from "../../../Asset/cakes/cake7.jpg";
@@ -25,8 +25,9 @@ import cake17 from "../../../Asset/cakes/cake17.jpg";
 import cake18 from "../../../Asset/cakes/cake18.jpg";
 import cake19 from "../../../Asset/cakes/cake19.jpg";
 import cake20 from "../../../Asset/cakes/cake20.jpg";
-import Irating from '../../../Components/Irating';
+import Irating from '../../../Component/Irating';
 import Flowercard from '../../../Component/Flowercard';
+
 
 
 export default function Cakeview(props){
@@ -163,11 +164,11 @@ photo:cake19
         <>
         
 
-      <Grid container spacing={{xs:2,md:3}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"black"}}>
+      <Grid container spacing={{xs:2,md:2}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"#008B8B"}}>
         {
           cakeList.map((item,index)=>{
             return(
-              <Grid item xs={6}  sm={6} md={4} key={index}>
+              <Grid item xs={4}  sm={4} md={4} key={index}>
 
                 <Flowercard  title={item.title}
                       photo={item.photo}

@@ -1,32 +1,33 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
-import Icart from '../Icart';
-import { useSelector } from 'react-redux';
-import Imsautocomplete from '../Imsautocomplete';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import AdbIcon from "@mui/icons-material/Adb";
+import { Link } from "react-router-dom";
+import Icart from "../Icart";
+import { useSelector } from "react-redux";
+import Imsautocomplete from "../Imsautocomplete";
+import { textTransform } from "@mui/system";
 
- const pages =['Cake','Flowers','Icecream','Birthday','Chocolates'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout','login'];
+const pages = ["Cake", "Flowers", "Icecream", "Birthday", "Chocolates"];
+const settings = ["Profile", "Account", "Dashboard", "Logout", "login"];
 
 function Sna(props) {
-    const cakes = useSelector((state)=>state.cake.orderedCakes);
-    const flowers=useSelector((state)=>state.flower.orderedFlowers);
-    const icecream=useSelector((state)=>state.icecream.orderedIcecreams);
-    const chocolates=useSelector((state)=>state.chocolate.orderedChocolates)
-    const sum = cakes + chocolates+icecream+flowers;
-    let pages=props.pages
+  const cakes = useSelector((state) => state.cake.orderedCakes);
+  const flowers = useSelector((state) => state.flower.orderedFlowers);
+  const icecream = useSelector((state) => state.icecream.orderedIcecreams);
+  const chocolates = useSelector((state) => state.chocolate.orderedChocolates);
+  const sum = cakes + chocolates + icecream + flowers;
+  let pages = props.pages;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -46,13 +47,11 @@ function Sna(props) {
   };
 
   return (
-    <AppBar position="static" sx={{backgroundColor:"red"}}>
+    <AppBar position="static" sx={{ backgroundColor: "#FF6347" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Link to='/' style={{textDecoration:'none'}}>
-
-          </Link>
+          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Link to="/" style={{ textDecoration: "none" }}></Link>
           <Typography
             variant="h6"
             noWrap
@@ -60,19 +59,18 @@ function Sna(props) {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            SuFiYaAn Bakery
-            🎂🎉🎁
+            SuFiYaAn Bakery 🎂🎉🎁 
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -87,30 +85,30 @@ function Sna(props) {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
-                <Link to={page} style={{textDecoration:"none"}}>
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
+                <Link to={page} style={{ textDecoration: "none" }}>
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center">{page}</Typography>
+                  </MenuItem>
                 </Link>
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -118,57 +116,60 @@ function Sna(props) {
             href=""
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
+              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            LOGO
+            RELISH
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-                <Link to={page}>
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link to={page} style={{textDecoration:'none'}}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" , textTransform:'capitalize'}}
+                >
+                  {page}
+                </Button>
               </Link>
             ))}
           </Box>
-          <Box sx={{bgcolor:"white"}}>
-            <Imsautocomplete/>
+          <Box sx={{ bgcolor: "white" }}>
+            <Imsautocomplete />
           </Box>
-            <Link to='/ViewCart'>
-                <IconButton aria-label='ViewCart'>
-                    <Icart badgeContent = {sum}/>
-                    
-                </IconButton>
-            </Link>
+          <Link to="/cart">
+            <IconButton aria-label="ViewCart">
+              <Icart badgeContent={sum} />
+            </IconButton>
+          </Link>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar
+                  alt="Sufiyaan"
+              src="https://www.filmibeat.com/ph-big/2019/02/mahesh-babu_155056989980.jpg"
+/>
               </IconButton>
             </Tooltip>
+
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}

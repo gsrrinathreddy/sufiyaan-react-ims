@@ -4,7 +4,11 @@ export default function Icecream(){
     
     return(
         <>
-        hello
+        <marquee>
+        <h1>
+          <font color="red">Fabulous icecreams🍨</font>
+        </h1>
+      </marquee>
         <IcecreamView/>
  
         </>

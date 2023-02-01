@@ -1,36 +1,73 @@
-import { Typography,Grid,Button } from "@mui/material";import { Box } from "@mui/system";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import Box from "@mui/material/Box";
+import { Button, Typography, Grid } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-export default function ViewCart()
-{
-    const cartList = useSelector((state)=>state.cart.cartList);
-    console.log(cartList)
+export default function ViewCart() {
+  const dispatch = useDispatch();
+  const cartList = useSelector((state) => state.cart.cartList);
+  console.log(cartList);
+  const navigate = useNavigate();
+  const Home = () => {
     const navigate = useNavigate();
-     return(<> <Box>Order Details : <Grid container>
-        <Typography variant="h6" sx={{fontWeight:'bold'}}> Name </Typography>{  
-        cartList.map((item)=>{ 
-            return(
-            <Typography>{item.name} </Typography> 
-        ) }) }
-        
-        
-         </Grid> <Grid md={2}> 
-        <Typography variant="h6" sx={{fontWeight:'bold'}}>Actual Price </Typography> 
-        {cartList.map((item)=>{ 
-            return(
-
-             <Typography> {item.actualPrice} </Typography>
-      ) })}
-      </Grid>
-      <Grid md={2}>
-       <Typography variant="h6" sx={{fontWeight : 'bold'}}>Discounted Price </Typography>
-       { 
-       cartList.map((item)=>{
-        return(
-       <Typography> {item.DiscountedPrice}</Typography>
-        ) })}
+  };
+  let sum = 0;
+  return (
+    <>
+      <Box>
+        Order Details:
+        <Grid container>
+          <Grid md={2}>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              Name
+            </Typography>
+            {cartList.map((item) => {
+              return<Typography>{item.title}</Typography>;
+            })}
+          </Grid>
+          <Grid md={2}>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              ActualPrice
+            </Typography>
+            {cartList.map((item) => {
+              return <Typography>{item.price}</Typography>;
+            })}
+          </Grid>
+          <Grid md={2}>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+            </Typography>
+            {cartList.map((item) => {
+              return<Typography>{item.discountedPrice}</Typography>;
+            })}
+          </Grid>
+          <Grid md={2}>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              Quantity
+            </Typography>
+            {cartList.map((item) => {
+              return <Typography>{item.qty}</Typography>;
+            })}
+          </Grid>
+          <Grid>
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+              Total            </Typography>
+            {cartList.map((item) => {
+              sum += (item.qty * item.price);
+              return<Typography>{item.qty * item.price}</Typography>;
+            })}
+            <h4>amount to be paid:{sum}</h4>
+          </Grid>
         </Grid>
-        </Box>
-      <Button onClick={()=>navigate('order-summary')}>Place Order</Button>
-      </> 
-      )}
+      </Box>
+      {
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => navigate("/Home")}
+        >
+          Go back to Home page{" "}
+        </Button>
+      }
+    </>
+  );
+}

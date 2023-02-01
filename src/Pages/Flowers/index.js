@@ -1,13 +1,14 @@
 import FlowerView from "../../Features/Flower/Flowerview";
-import IcecreamView from "../../Features/icecream/IcecreamView";
+export default function Flowers() {
+  return (
+    <>
+      <marquee>
+        <h1>
+          <font color="orange">Beautiful Flowers🌹💐</font>
+        </h1>
+      </marquee>
 
-export default function Flowers(){
-    
-    return(
-        <>
-        <FlowerView></FlowerView>
- 
-        </>
-        
-    )
+      <FlowerView></FlowerView>
+    </>
+  );
 }

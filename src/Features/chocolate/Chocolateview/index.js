@@ -24,6 +24,7 @@ import Flowercard from '../../../Component/Flowercard';
 
  export default function Chocolateview(props){
     let title=props.title
+    let price=props.price
     let photo=props.photo
    const dispatch=useDispatch();
    const num1=useSelector((state)=>state.chocolate.numOfChocolates);
@@ -114,7 +115,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
         <>
         <br/>
 
-      <Grid container spacing={{xs:2,md:3}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"black"}}>
+      <Grid container spacing={{xs:2,md:3}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"#BC8F8F"}}>
         {
           chocolateList.map((item,index)=>{
             return(

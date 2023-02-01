@@ -2,14 +2,12 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import axios from 'axios';
-import Imnavbar from './Components/Imnavbar';
 import Cake from './Pages/Cake';
 import Flowers from './Pages/Flowers';
 import Icecream from './Pages/Icecream';
 import Birthday from './Pages/Cake';
 import Viewcart from './Pages/Viewcart';
 import Chocolate from './Pages/Chocolate';
-import Flowercard from './Components/Flowercard';
 import Sna from './Component/Sna';
 function App() {
 

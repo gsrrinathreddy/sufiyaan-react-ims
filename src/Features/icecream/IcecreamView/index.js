@@ -1,8 +1,7 @@
 import { useDispatch,useSelector } from "react-redux";
 import{ordered,restocked} from '../icecreamSlice';
 import { Button } from "@mui/material";
-import Icart from "../../../Components/Icart";
-import IcecreamCard from "../../../Components/Icecreamcard";
+import Icart from "../../../Component/Icart";
 import Grid from "@mui/material/Grid";
 import icecream1 from "../../../Asset/icecream/icecream1.jpg";
 import icecream2 from "../../../Asset/icecream/icecream2.jpg";
@@ -14,6 +13,9 @@ import icecream7 from "../../../Asset/icecream/icecream7.jpg";
 import icecream8 from "../../../Asset/icecream/icecream8.jpg";
 import icecream9 from "../../../Asset/icecream/icecream9.jpg";
 import icecream10 from "../../../Asset/icecream/icecream10.jpg";
+import icecream11 from "../../../Asset/icecream/icecream11.jpg";
+import icecream12 from "../../../Asset/icecream/icecream12.jpg";
+import Flowercard from "../../../Component/Flowercard";
 export default function IcecreamView(){
     const dispatch=useDispatch();
     let icecreams  = useSelector((state)=>state.icecream.numOficecreams);
@@ -24,43 +26,61 @@ export default function IcecreamView(){
    const IcecreamList=[
     {
       title:"icecream1",
-      photo:icecream1
+      photo:icecream1,
+      price:345
     },
     {
         title:"icecream2",
-        photo:icecream2
+        photo:icecream2,
+        price:213
     },
 {
     title:"icecream3",
-    photo:icecream3
+    photo:icecream3,
+    price:456
 },
 {
     title:"icecream4",
-    photo:icecream4
+    photo:icecream4,
+    price:112
 },
 {
     title:"icecream5",
-    photo:icecream5
+    photo:icecream5,
+    price:786
 },
 {
     title:"icecream6",
-    photo:icecream6
+    photo:icecream6,
+    price:321
 },
 {
     title:"icecream7",
-    photo:icecream7
+    photo:icecream7,
+    price:578
 },
 {
     title:"icecream8",
-    photo:icecream9
+    photo:icecream9,
+    price:341
 },{
     title:"icecream9",
-    photo:icecream9
+    photo:icecream9,
+    price:876
 },
 {
     title:"icecream10",
     photo:icecream10,
     price:234
+},
+{
+    title:"icecream11",
+    photo:icecream11,
+    price:110
+},{
+    title:"icecream12",
+    photo:icecream12,
+    price:75
 }
 
 ]
@@ -73,13 +93,14 @@ export default function IcecreamView(){
   {
     IcecreamList.map((item,index)=>{
       return(
-        <Grid item xs={2}  sm={6} md={4} key={index} sx={{backgroundColor:"brown"}}>
+        <Grid item xs={2}  sm={6} md={4} key={index} sx={{backgroundColor:"#3CB371"}}>
 
-        <IcecreamCard title={item.title}
+        <Flowercard title={item.title}
                 photo={item.photo}
                 price={item.price}
+                order={ordered}
                 
-        ></IcecreamCard>
+        ></Flowercard>
         </Grid>
       )
     })

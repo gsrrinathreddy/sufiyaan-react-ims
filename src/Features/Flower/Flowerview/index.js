@@ -1,7 +1,7 @@
 import { useDispatch,useSelector } from "react-redux";
 import{ordered,restocked} from '../FlowerSlice';
 import { Button } from "@mui/material";
-import Icart from "../../../Components/Icart";
+import Icart from "../../../Component/Icart";
 import Snackbar from '@mui/material/Snackbar';
 import MuiAlert from '@mui/material/Alert';
 import React from "react";
@@ -18,7 +18,8 @@ import flower8 from '../../../Asset/Flowers/flower8.jpg';
 import flower9 from '../../../Asset/Flowers/flower9.jpg';
 import flower10 from '../../../Asset/Flowers/flower10.jpg';
 import flower11 from '../../../Asset/Flowers/flower11.jpg';
-export default function FlowerView(){
+export default function FlowerView(props){
+  let price=props.price
 
   const dispatch=useDispatch();
   const numOfFlowers=useSelector((state)=>state.flower.numOfFlowers);
@@ -28,46 +29,58 @@ export default function FlowerView(){
   const flowerList=[
     {
       title:"flower1",
-      photo:flower1
+      photo:flower1,
+      price:345
     },
     {
       title:"flower2",
-      photo:flower2
+      photo:flower2,
+      price:213
     },
     {
       title:"flower3",
-      photo:flower3
+      photo:flower3,
+      price:456
     },
     {
       title:"flower4",
-      photo:flower4
+      photo:flower4,
+      price:789
     },
     {
       title:"flower5",
-      photo:flower5
+      photo:flower5,
+      price:657
     },
     {
       title:"flower6",
-      photo:flower6
+      photo:flower6,
+      price:321
+
     },
     {
       title:"flower7",
-      photo:flower7
+      photo:flower7,
+      price:876
     },
     {
       title:"flower8",
-      photo:flower8
+      photo:flower8,
+      price:432
     },
     {
       title:"flower9",
-      photo:flower9
+      photo:flower9,
+      price:456
     },
     {title:"flower10",
-    photo:flower10
+    photo:flower10,
+    price:321
     },
     {
       title:"flower11",
-      photo:flower11
+      photo:flower11,
+      price:874
     }
 
   ]
@@ -99,7 +112,7 @@ export default function FlowerView(){
         <>
          <br/>
 
-<Grid container spacing={{xs:2,md:3}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"black"}}>
+<Grid container spacing={{xs:2,md:3}} columnSpacing={{xs:4,sm:8,md:12}} sx={{backgroundColor:"#FFEBCD"}}>
   {
     flowerList.map((item,index)=>{
       return(
@@ -107,6 +120,7 @@ export default function FlowerView(){
 
         <Flowercard title={item.title}
                 photo={item.photo}
+                price={item.price}
                 order={ordered}
                 
         ></Flowercard>
