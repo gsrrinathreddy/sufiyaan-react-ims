@@ -9,7 +9,7 @@ import cake1 from '../../../Asset/cakes/cake1.jpg';
 import cake from "../../../Asset/cakes/cake2.jpg";
 import cake3 from "../../../Asset/cakes/cake3.jpg";
 import cake4 from "../../../Asset/cakes/cake4.jpg";
-import Icard from '../../../Component/Icard';
+
 import cake5 from "../../../Asset/cakes/cake5.jpg";
 import cake6 from "../../../Asset/cakes/cake6.jpg";
 import cake7 from "../../../Asset/cakes/cake7.jpg";

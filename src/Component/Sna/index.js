@@ -13,6 +13,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Icart from "../Icart";
 import { useSelector } from "react-redux";
 import Imsautocomplete from "../Imsautocomplete";
@@ -45,7 +46,20 @@ function Sna(props) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
+  const navLinkStyles = ({isActive}) => {
+    return{
+       fontWeight: isActive ? 'bold' : 'normal',
+       //fontColor: isActive ? 'red' : 'white',
+        textDecoration:'none',
+        textTransform:'none',
+        my:2,
+        fontSize:isActive?'18px': '16px',
+        display:'block',
+        color:isActive?'Pink':'white',
+        fontWeight: isActive ? 'bold':'normal',
+        marginRight:'10px',marginLeft:'10px'
+    }
+  }
   return (
     <AppBar position="static" sx={{ backgroundColor: "#FF6347" }}>
       <Container maxWidth="xl">
@@ -125,19 +139,21 @@ function Sna(props) {
               textDecoration: "none",
             }}
           >
-            RELISH
+            LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Link to={page} style={{textDecoration:'none'}}>
-                <Button
+              <NavLink to={page} style={navLinkStyles} onClick={handleCloseNavMenu}
+              >
+                {/* <Button
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" , textTransform:'capitalize'}}
                 >
                   {page}
-                </Button>
-              </Link>
+                </Button> */}
+                {page}
+              </NavLink>
             ))}
           </Box>
           <Box sx={{ bgcolor: "white" }}>
