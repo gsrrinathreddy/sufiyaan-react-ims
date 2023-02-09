@@ -1,6 +1,7 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
+import Chip from "@mui/material/Chip";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
@@ -20,6 +21,7 @@ import Itextfield from "../Itextfield";
 import { Button, TextField } from "@mui/material";
 import { useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
+import { Stack } from "@mui/system";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -39,6 +41,8 @@ export default function Flowercard(props) {
   let title = props.title;
   let photo = props.photo;
   let price = props.price;
+  let label=props.label;
+  let act=props.act;
   let orderPlaced = props.order;
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
@@ -85,6 +89,11 @@ export default function Flowercard(props) {
         subheader="September 14, 2016"
       />
       <CardMedia component="img" height="194" image={photo} alt="Snacks" />
+      <Stack alignItems="topleft">
+        <Stack direction="row" spacing={1}>
+          <Chip label ={label} color={act}/>
+        </Stack>
+      </Stack>
       <CardContent>
         <Typography variant="body2" color="text.secondary">
           <Irating/>

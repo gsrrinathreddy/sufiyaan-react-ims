@@ -9,9 +9,11 @@ import Birthday from './Pages/Cake';
 import Viewcart from './Pages/Viewcart';
 import Chocolate from './Pages/Chocolate';
 import Sna from './Component/Sna';
+import Signup from './Pages/Signup';
+import Users from './Pages/Users';
 function App() {
 
-  let p1 =['Cake','Flowers','Icecream','Birthday','Chocolates'];
+  let p1 =['Cake','Flowers','Icecream','Birthday','Chocolates','Users'];
   return (
     
     
@@ -26,6 +28,8 @@ function App() {
   <Route path='Chocolates'element={<Chocolate/>}/>
   <Route path='/cart' element={<Viewcart/>}/>
   <Route path='/' element={<Chocolate/>}/>
+  <Route path='/Signup' element={<Signup/>}/>
+  <Route path='/Users'element={<Users/>}/>
   </Routes>
 
      </BrowserRouter>

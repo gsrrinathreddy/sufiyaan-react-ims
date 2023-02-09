@@ -41,98 +41,136 @@ export default function Cakeview(props){
       {
         title:'cake 1',
         photo:cake1,
-        price:324
+        price:324,
+        label:"Best Seller",
+        act:"success"
       },
       {
         title:"cake2",
         photo:cake,
-        price:420
+        price:420,
+        label:"Best Seller",
+        act:"success"
         
       },
       {
         title:"cake3",
         photo:cake3,
-        price:123
+        price:123,
+        label:"Best Seller",
+        act:"success"
       },
       {
         title:"cake4",
         photo:cake4,
-        price:890
+        price:890,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"cake5",
         photo:cake5,
-        price:341
+        price:341,
+        label:"Few left",
+        act:"secondary"
       },
       {
         title:"cake6",
         photo:cake6,
-        price:432
+        price:432,
+        label:"Best seller",
+        act:"secondary"
       },
       {
         title:"cake7",
         photo:cake7,
-        price:675
+        price:675,
+        label:"few left",
+        act:"secondary"
       },
       {
         title:"cake9",
         photo:cake9,
-        price:231
+        price:231,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"cake10",
         photo:cake10,
-        price:654
+        price:654,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"cake11",
         photo:cake11,
-        price:932
+        price:932,
+        label:"Few left",
+        act:"secondary"
       },
 {
   title:"cake12",
   photo:cake12,
-  price:345
+  price:345,
+  label:"Best seller",
+  act:"success"
 },
 {
   title:"cake13",
   photo:cake13,
-  price:124
+  price:124,
+  label:"Best seller",
+  act:"success"
 
 },
 {
   title:"cake14",
   photo:cake14,
-  price:367
+  price:367,
+  label:"Few left",
+  act:"secondary"
 },{
   title:"cake15",
   photo:cake15,
-  price:198
+  price:198,
+  label:"Few left",
+  act:"secondary"
 },
 {
   title:"cake16",
   photo:cake16,
-  price:324
+  price:324,
+  label:"Best seller",
+  label:"success"
 
 },
 {
   title:"cake17",
   photo:cake17,
-  price:43
+  price:43,
+  label:"Best seller",
+  act:"success"
 },
 {
   title:"cake18",
   photo:cake18,
-  price:320
+  price:320,
+  label:"Best seller",
+  act:"success"
   
 },
 {
   title:"cake19",
-photo:cake19
+photo:cake19,
+label:"Few left",
+act:"secondary"
 },{
   title:"cake20",
   photo:cake20,
-  price:400
+  price:400,
+  label:"Best seller",
+  act:"success"
 }
 
 ]
@@ -174,6 +212,8 @@ photo:cake19
                       photo={item.photo}
                       price={item.price}
                       order={ordered}
+                      label={item.label}
+                      act={item.act}
                >
 
               </Flowercard>

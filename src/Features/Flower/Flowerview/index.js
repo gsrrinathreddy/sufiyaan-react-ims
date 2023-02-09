@@ -20,6 +20,8 @@ import flower10 from '../../../Asset/Flowers/flower10.jpg';
 import flower11 from '../../../Asset/Flowers/flower11.jpg';
 export default function FlowerView(props){
   let price=props.price
+  let label=props.label;
+  let act=props.act
 
   const dispatch=useDispatch();
   const numOfFlowers=useSelector((state)=>state.flower.numOfFlowers);
@@ -30,57 +32,79 @@ export default function FlowerView(props){
     {
       title:"flower1",
       photo:flower1,
-      price:345
+      price:345,
+      label:"Best seller",
+      act:"success"
     },
     {
       title:"flower2",
       photo:flower2,
-      price:213
+      price:213,
+      label:"Few left",
+      act:"secondary"
     },
     {
       title:"flower3",
       photo:flower3,
-      price:456
+      price:456,
+      label:"Best seller",
+      act:"success"
     },
     {
       title:"flower4",
       photo:flower4,
-      price:789
+      price:789,
+      label:"Best seller",
+      act:"success"
     },
     {
       title:"flower5",
       photo:flower5,
-      price:657
+      price:657,
+      label:"Few left",
+      act:"secondary"
     },
     {
       title:"flower6",
       photo:flower6,
-      price:321
+      price:321,
+      label:"Best seller",
+      act:"success"
 
     },
     {
       title:"flower7",
       photo:flower7,
-      price:876
+      price:876,
+      label:"Best seller",
+      act:"success"
     },
     {
       title:"flower8",
       photo:flower8,
-      price:432
+      price:432,
+      label:"Best seller",
+      act:"success"
     },
     {
       title:"flower9",
       photo:flower9,
-      price:456
+      price:456,
+      label:"Few left",
+      act:"secondary"
     },
     {title:"flower10",
     photo:flower10,
-    price:321
+    price:321,
+    label:"Best seller",
+    act:"success"
     },
     {
       title:"flower11",
       photo:flower11,
-      price:874
+      price:874,
+      label:"Few left",
+      act:"secondary"
     }
 
   ]
@@ -122,6 +146,8 @@ export default function FlowerView(props){
                 photo={item.photo}
                 price={item.price}
                 order={ordered}
+                label={item.label}
+                act={item.act}
                 
         ></Flowercard>
         </Grid>

@@ -18,10 +18,9 @@ import Icart from "../Icart";
 import { useSelector } from "react-redux";
 import Imsautocomplete from "../Imsautocomplete";
 import { textTransform } from "@mui/system";
-
-const pages = ["Cake", "Flowers", "Icecream", "Birthday", "Chocolates"];
+import { useNavigate } from "react-router-dom";
+const pages = ["Cake", "Flowers", "Icecream", "Birthday", "Chocolates","Users"];
 const settings = ["Profile", "Account", "Dashboard", "Logout", "login"];
-
 function Sna(props) {
   const cakes = useSelector((state) => state.cake.orderedCakes);
   const flowers = useSelector((state) => state.flower.orderedFlowers);
@@ -60,6 +59,7 @@ function Sna(props) {
         marginRight:'10px',marginLeft:'10px'
     }
   }
+  const navigate=useNavigate()
   return (
     <AppBar position="static" sx={{ backgroundColor: "#FF6347" }}>
       <Container maxWidth="xl">
@@ -164,6 +164,9 @@ function Sna(props) {
               <Icart badgeContent={sum} />
             </IconButton>
           </Link>
+          <Button variant="contained"onClick={()=>navigate("/Signup")}>
+            Signup
+            </Button>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

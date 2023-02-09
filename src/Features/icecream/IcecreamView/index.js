@@ -16,7 +16,9 @@ import icecream10 from "../../../Asset/icecream/icecream10.jpg";
 import icecream11 from "../../../Asset/icecream/icecream11.jpg";
 import icecream12 from "../../../Asset/icecream/icecream12.jpg";
 import Flowercard from "../../../Component/Flowercard";
-export default function IcecreamView(){
+export default function IcecreamView(props){
+    let label=props.label
+    let act=props.act
     const dispatch=useDispatch();
     let icecreams  = useSelector((state)=>state.icecream.numOficecreams);
     console.log('icecreams',icecreams);
@@ -27,60 +29,84 @@ export default function IcecreamView(){
     {
       title:"icecream1",
       photo:icecream1,
-      price:345
+      price:345,
+      label:"Best seller",
+      act:"success"
     },
     {
         title:"icecream2",
         photo:icecream2,
-        price:213
+        price:213,
+        label:"Best seller",
+        act:"success"
     },
 {
     title:"icecream3",
     photo:icecream3,
-    price:456
+    price:456,
+    label:"Few left",
+    act:"secondary"
 },
 {
     title:"icecream4",
     photo:icecream4,
-    price:112
+    price:112,
+    label:"Best seller",
+    act:"success"
 },
 {
     title:"icecream5",
     photo:icecream5,
-    price:786
+    price:786,
+    label:"Few left",
+    act:"secondary"
 },
 {
     title:"icecream6",
     photo:icecream6,
-    price:321
+    price:321,
+    label:"Best seller",
+    act:"success"
 },
 {
     title:"icecream7",
     photo:icecream7,
-    price:578
+    price:578,
+    label:"Few left",
+    act:"secondary"
 },
 {
     title:"icecream8",
     photo:icecream9,
-    price:341
+    price:341,
+    label:"Best seller",
+    act:"success"
 },{
     title:"icecream9",
     photo:icecream9,
-    price:876
+    price:876,
+    label:"Best seller",
+    act:"success"
 },
 {
     title:"icecream10",
     photo:icecream10,
-    price:234
+    price:234,
+    label:"Few left",
+    act:"secondary"
 },
 {
     title:"icecream11",
     photo:icecream11,
-    price:110
+    price:110,
+    label:"Best seller",
+    act:"success"
 },{
     title:"icecream12",
     photo:icecream12,
-    price:75
+    price:75,
+    label:"Best seller",
+    act:"success"
 }
 
 ]
@@ -99,6 +125,8 @@ export default function IcecreamView(){
                 photo={item.photo}
                 price={item.price}
                 order={ordered}
+                label={item.label}
+                act={item.act}
                 
         ></Flowercard>
         </Grid>

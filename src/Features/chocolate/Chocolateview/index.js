@@ -26,6 +26,8 @@ import Flowercard from '../../../Component/Flowercard';
     let title=props.title
     let price=props.price
     let photo=props.photo
+    let label=props.label
+    let act=props.act
    const dispatch=useDispatch();
    const num1=useSelector((state)=>state.chocolate.numOfChocolates);
     //console.log('chocolate',numOfChocolates);
@@ -35,52 +37,72 @@ import Flowercard from '../../../Component/Flowercard';
       {
         title:'chocolate1',
         photo:chocolate1,
-        price:324
+        price:324,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"chocolate2",
         photo:chocolate2,
-        price:110
+        price:110,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"chocolate3",
         photo:chocolate3,
-        price:234
+        price:234,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"chocolate4",
         photo:chocolate4,
-        price:125
+        price:125,
+        label:"Few left",
+        act:"secondary"
       },
       {
         title:"chocolate5",
         photo:chocolate5,
-        price:134
+        price:134,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"chocolate6",
         photo:chocolate6,
-        price:245
+        price:245,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"chocolate7",
         photo:chocolate7,
-        price:567
+        price:567,
+        label:"Few left",
+        act:"secondary"
       },
       {
         title:"chocolate10",
         photo:chocolate10,
-        price:789
+        price:789,
+        label:"Best seller",
+        act:"success"
       },
       {
         title:"chocolate11",
         photo:chocolate11,
-        price:432
+        price:432,
+        label:"Few left",
+        act:"secondary"
       },
       {
         title:"chocolate12",
         photo:chocolate12,
-        price:124
+        price:124,
+        label:"Best seller",
+        act:"success"
       }
       
       
@@ -125,6 +147,9 @@ const Alert = React.forwardRef(function Alert(props, ref) {
                       photo={item.photo}
                       price={item.price}
                       order={ordered}
+                      label={item.label}
+                      act={item.act}
+
               ></Flowercard>
               </Grid>
             )
